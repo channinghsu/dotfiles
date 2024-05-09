@@ -1,15 +1,8 @@
 [
   {
-    "command": "vscode-neovim.compositeEscape1",
-    "key": "j",
-    "when": "neovim.mode == insert && editorTextFocus",
-    "args": "j"
-  },
-  {
-    "command": "vscode-neovim.compositeEscape2",
-    "key": "k",
-    "when": "neovim.mode == insert && editorTextFocus",
-    "args": "k"
+  "key": "alt+k",
+  "command": "extension.toggleBool",
+  "when": "editorTextFocus"
   },
   {
     "key": "shift+ctrl+e",
@@ -170,10 +163,45 @@
     "command": "-acceptAlternativeSelectedSuggestion",
     "when": "suggestWidgetVisible && textInputFocus && textInputFocus"
   },
+  // {
+  //   "key": "ctrl+f",
+  //   "command": "-vscode-neovim.ctrl-f",
+  //   "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
+  // },
   {
+    "command": "actions.find",
     "key": "ctrl+f",
-    "command": "-vscode-neovim.ctrl-f",
-    "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
+    "when": "editorFocus || editorIsOpen"
+  },
+  {
+    "command": "editor.action.clipboardPasteAction",
+    "key": "ctrl+v",
+    "when": "editorTextFocus && editorIsOpen"
+  },
+  {
+    "command": "editor.action.clipboardCopyAction",
+    "key": "ctrl+c",
+    "when": "editorTextFocus && editorIsOpen"
+  },
+  {
+    "command": "editor.action.selectAll",
+    "key": "ctrl+a",
+    "when": "editorTextFocus && editorIsOpen"
+  },
+  {
+    "command": "undo",
+    "key": "ctrl+z",
+    "when": "editorTextFocus && editorIsOpen"
+  },
+  {
+    "command": "redo",
+    "key": "ctrl+y",
+    "when": "editorTextFocus && editorIsOpen"
+  },
+  {
+    "command": "editor.action.clipboardCutAction",
+    "key": "ctrl+x",
+    "when": "editorTextFocus && editorIsOpen"
   },
   {
     "key": "space",
