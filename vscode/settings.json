@@ -54,9 +54,6 @@
   "notebook.output.fontFamily": "Hack Nerd font",
   "markdown.preview.fontFamily": "Hack Nerd font",
   "editor.inlayHints.fontFamily": "Hack Nerd font",
-
-  // Font size
-  "editor.fontSize": 12,
   "terminal.integrated.fontSize": 14,
   "window.commandCenter": false,
   "editor.scrollbar.vertical": "auto",
@@ -164,6 +161,7 @@
   },
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": true,
+  "window.zoomLevel": 0.75,
 
   // Neovim
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
@@ -634,7 +632,7 @@
           "name": "Definition",
           "type": "command",
           "command": "editor.action.revealDefinition",
-          "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+          "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbedddEditor"
         },
         {
           "key": "D",
@@ -1145,12 +1143,35 @@
       "name": "Toggle zen mode",
       "type": "command",
       "command": "workbench.action.toggleZenMode"
+    },
+    {
+    "key": "a",
+    "name": "leetcode...",
+    "type": "bindings",
+    "bindings":[
+    {
+      "key": "c",
+      "name": "leetcode test Solution",
+      "type": "command",
+      "command": "leetcode.testSolution"
+    },
+    {
+      "key": "s",
+      "name": "leetcode submit Solution",
+      "type": "command",
+      "command": "leetcode.submitSolution"
+    },
+    {
+      "key": "o",
+      "name": "leetcode show Solution",
+      "type": "command",
+      "command": "leetcode.showSolution"
     }
-  ],
-  "python.createEnvironment.trigger": "off",
+    ]
+  }
+],
   "git.enableSmartCommit": true,
   "git.autofetch": true,
-  "editor.lineHeight": 0,
   "explorer.confirmDelete": false,
   "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\xcu8szh\\git_repo\\dotfiles\\nvim-vscode\\init.vim",
   "vscode-neovim.compositeKeys": {
@@ -1160,5 +1181,24 @@
      }
 },
 "editor.minimap.enabled": false,
-"git.confirmSync": false
+"git.confirmSync": false,
+"editor.foldingStrategy": "indentation",
+"editor.lineHeight": 0,
+"editor.fontSize": 16,
+"leetcode.workspaceFolder": "/Users/channinghsu/.leetcode",
+"leetcode.hint.configWebviewMarkdown": false,
+"leetcode.endpoint": "leetcode-cn",
+"editor.accessibilitySupport": "off",
+"fittencode.Unit Test Framework.C/C++": "gtest",
+"fittencode.languagePreference.commentPreference": "zh-cn",
+"fittencode.languagePreference.displayPreference": "zh-cn",
+"redhat.telemetry.enabled": false,
+"cmake.showOptionsMovedNotification": false,
+"leetcode.hint.commandShortcut": false,
+"leetcode.defaultLanguage": "cpp",
+"diffEditor.ignoreTrimWhitespace": false,
+"leetcode.hint.commentDescription": false,
+"[jsonc]": {
+  "editor.defaultFormatter": "vscode.json-language-features"
+}
 }
