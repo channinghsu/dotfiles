@@ -1113,11 +1113,17 @@
         }
       ]
     },
+    // {
+    //   "key": "x",
+    //   "name": "Extensions",
+    //   "type": "command",
+    //   "command": "workbench.view.extensions"
+    // },
     {
       "key": "x",
-      "name": "Extensions",
+      "name": "Close active editor",
       "type": "command",
-      "command": "workbench.view.extensions"
+      "command": "workbench.action.closeActiveEditor"
     },
     {
       "key": "y",

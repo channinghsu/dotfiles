@@ -171,35 +171,33 @@
   {
     "command": "vscode-neovim.send",
     "key": "shift+alt+h",
-    "when": "editorTextFocus && neovim.mode != insert",
+    // "when": "editorTextFocus && neovim.mode != insert",
     "args": "<C-h>"
   },
   {
     "command": "vscode-neovim.send",
     "key": "shift+alt+j",
-    "when": "editorTextFocus && neovim.mode != insert",
+    // "when": "editorTextFocus && neovim.mode != insert",
     "args": "<C-j>"
   },
   {
     "command": "vscode-neovim.send",
     "key": "shift+alt+k",
-    "when": "editorTextFocus && neovim.mode != insert",
+    // "when": "editorTextFocus && neovim.mode != insert",
     "args": "<C-k>"
   },
   {
     "command": "vscode-neovim.send",
     "key": "shift+alt+l",
-    "when": "editorTextFocus && neovim.mode != insert",
+    // "when": "editorTextFocus && neovim.mode != insert",
     "args": "<C-l>"
   },
   {
     "command": "workbench.action.nextEditor",
     "key": "shift+l",
-    "when": "editorTextFocus"
   },
   {
     "command": "workbench.action.previousEditor",
     "key": "shift+h",
-    "when": "editorTextFocus"
   }
 ]
