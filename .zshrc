@@ -16,11 +16,16 @@ export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/opt/homebrew/opt/node@14/bin:$PATH"
 export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+
+
 alias gs='gh copilot suggest'
 alias ge='gh copilot explain'
 alias gss='git status'
-alias gl='git pull'
-alias gp='git push'
+alias gp='git pull'
+alias gP='git push'
 alias gc='git commit -v'
 alias gb='git branch'
 alias n='nvim'
@@ -48,3 +53,19 @@ setopt hist_verify
 # completion using arrow keys (based on history)
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/channinghsu/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/channinghsu/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/channinghsu/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/channinghsu/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
