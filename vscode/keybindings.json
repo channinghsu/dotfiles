@@ -194,10 +194,10 @@
   },
   {
     "command": "workbench.action.nextEditor",
-    "key": "shift+l",
+    "key": "shift+l"
   },
   {
     "command": "workbench.action.previousEditor",
-    "key": "shift+h",
+    "key": "shift+h"
   }
 ]
