@@ -1,0 +1,162 @@
+#!/usr/bin/env sh
+
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+
+###############################################################################
+#                          Custom padding settings
+###############################################################################
+
+# Sketchybar size changes depending if I'm on my laptop or mac mini, solving it
+# this way, there may be a better way but this was the easiest to solve for now
+# I only change the paddings if yabai is installed, otherwise I use default
+# paddings
+if command -v sketchybar &>/dev/null; then
+  # Check the display size (e.g., grab the resolution here)
+  display_resolution=$(system_profiler SPDisplaysDataType | grep Resolution)
+  # First condition is to match my macbook pro, the * are used as wildcards
+  if [[ "$display_resolution" == *"3024 x 1964"* ]]; then
+    # yabai -m config top_padding 12
+    yabai -m config top_padding 10
+    yabai -m config bottom_padding 5
+    yabai -m config left_padding 5 
+    yabai -m config right_padding 5
+  else
+    # This matches my 27 inch monitor
+    yabai -m config top_padding 40
+    yabai -m config bottom_padding 10
+    yabai -m config left_padding 10
+    yabai -m config right_padding 10
+    # For youtube thumbnails
+    # yabai -m config right_padding 500
+    # For youtube posts and neomemes
+    # yabai -m config right_padding 800
+  fi
+else
+  yabai -m config top_padding 02
+  yabai -m config bottom_padding 00
+fi
+
+###############################################################################
+#                               Transparency
+###############################################################################
+
+yabai -m config window_opacity on
+
+# Make the below apps transparent
+apps_transparent="(Spotify|Alacritty|kitty)"
+yabai -m signal --add event=window_focused app="^${apps_transparent}$" action="yabai -m config active_window_opacity 0.85"
+yabai -m signal --add event=window_focused app="^${apps_transparent}$" action="yabai -m config normal_window_opacity 0.00001"
+
+# When any other app gains focus, reset both active and background window opacity to fully visible
+yabai -m signal --add event=window_focused app!="^${apps_transparent}$" action="yabai -m config active_window_opacity 1.0"
+yabai -m signal --add event=window_focused app!="^${apps_transparent}$" action="yabai -m config normal_window_opacity 1.0"
+
+yabai -m signal --add event=window_focused app=".*CleanShot X.*" action="yabai -m config active_window_opacity 1.0"
+yabai -m signal --add event=window_focused app=".*CleanShot X.*" action="yabai -m config normal_window_opacity 1.0"
+
+###############################################################################
+#                                  Misc
+###############################################################################
+
+# Configure the layout mode
+# "stack" - is what I use, keeps a single app on the front
+# "bsp" - binary space partitioning enables automatic tiling (partitioning)
+# "float" - default mode, windows are not managed
+yabai -m config layout bsp
+
+# new window spawns to the right if vertical split, or bottom if horizontal split
+yabai -m config window_placement second_child
+
+# padding set to 11px
+# yabai -m config top_padding 10
+# yabai -m config bottom_padding 10
+# yabai -m config left_padding 10
+# yabai -m config right_padding 10
+# yabai -m config window_gap 10
+# -- mouse settings --
+
+# center mouse on window with focus
+yabai -m config mouse_follows_focus on
+
+# modifier for clicking and dragging with mouse
+yabai -m config mouse_modifier alt
+# set modifier + left-click drag to move window
+yabai -m config mouse_action1 move
+# set modifier + right-click drag to resize window
+yabai -m config mouse_action2 resize
+
+# when window is dropped in center of another window, swap them (on edges it will split it)
+yabai -m mouse_drop_action swap
+
+yabai -m active_window_border_color 0xff775759 \
+	normal_window_border_color 0xff555555
+
+
+
+# disable specific apps
+# Rules
+ignored_apps=(
+  "Alfred Preferences"
+  "App Store"
+  "Bluetooth Explorer"
+  "Caprine"
+  "Couleurs"
+  "Dash"
+  "Deliveries"
+  "Ears"
+  "Finder"
+  "Flume"
+  "Handbrake"
+  "Home"
+  "Installer"
+  "IPinator"
+  "Logi Options"
+  "Logitech Options"
+  "Mastonaut"
+  "Messages"
+  "Messenger"
+  "Music"
+  "Parallels"
+  "Photo Booth"
+  "Pixave"
+  "Podcasts"
+  "Poolside FM"
+  "Preview"
+  "Pritunl"
+  "QuickTime Player"
+  "Reminders"
+  "Soulver 3"
+  "Stickies"
+  "Streaks"
+  "System Information"
+  "System Preferences"
+  "The Unarchiver"
+  "Things"
+  "Telegram"
+  "Transmit"
+  "WeChat"
+)
+
+for app in "${ignored_apps[@]}";
+do yabai -m rule --add app="${app}" manage=off;
+done;
+
+yabai -m rule --add app="Finder" title="Info" manage=off
+yabai -m rule --add app="Finder" title="Copy" manage=off
+yabai -m rule --add app="Finder" title="Mov" manage=off
+yabai -m rule --add app="Finder" title="Trash" manage=off
+yabai -m rule --add title="Preferences" manage=off
+yabai -m rule --add app="iTunes" title="MiniPlayer" manage=off
+yabai -m rule --add app="Music" title="MiniPlayer" manage=off
+yabai -m rule --add app="Front" title="New Message" manage=off
+yabai -m rule --add app="Front" title="New Discussion" manage=off
+yabai -m rule --add app="Firefox" title="Picture-in-Picture" manage=off
+yabai -m rule --add app="Arc" title="Picture in Picture" manage=off
+yabai -m rule --add app="VLC"
+yabai -m rule --add app="Transmit" title="Activity" manage=off
+# delete monocle mode lock files from previous sessions
+find "${TMPDIR}" -type f -perm +111 -name "yabai_${USER}_monocle_mode_*" -delete
+
+echo "yabai configuration loaded.."
