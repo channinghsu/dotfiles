@@ -16,18 +16,16 @@ if command -v sketchybar &>/dev/null; then
   # Check the display size (e.g., grab the resolution here)
   display_resolution=$(system_profiler SPDisplaysDataType | grep Resolution)
   # First condition is to match my macbook pro, the * are used as wildcards
-  if [[ "$display_resolution" == *"3024 x 1964"* ]]; then
-    # yabai -m config top_padding 12
-    yabai -m config top_padding 10
-    yabai -m config bottom_padding 5
-    yabai -m config left_padding 5 
-    yabai -m config right_padding 5
-  else
-    # This matches my 27 inch monitor
+  if [[ "$display_resolution" == *"5120 x 2880"* ]]; then
     yabai -m config top_padding 40
-    yabai -m config bottom_padding 10
-    yabai -m config left_padding 10
-    yabai -m config right_padding 10
+    yabai -m config bottom_padding 2
+    yabai -m config left_padding 2 
+    yabai -m config right_padding 2
+  else
+    yabai -m config top_padding 10
+    yabai -m config bottom_padding 2
+    yabai -m config left_padding 2
+    yabai -m config right_padding 2
     # For youtube thumbnails
     # yabai -m config right_padding 500
     # For youtube posts and neomemes
