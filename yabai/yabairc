@@ -26,14 +26,10 @@ if command -v sketchybar &>/dev/null; then
     yabai -m config bottom_padding 2
     yabai -m config left_padding 2
     yabai -m config right_padding 2
-    # For youtube thumbnails
-    # yabai -m config right_padding 500
-    # For youtube posts and neomemes
-    # yabai -m config right_padding 800
   fi
 else
   yabai -m config top_padding 02
-  yabai -m config bottom_padding 00
+  yabai -m config bottom_padding 00/Users/channinghsu/Library/Application Support/CleanShot/media/media_YC21rR8Jlf/CleanShot 2024-07-19 at 10.09.11@2x.png /Users/channinghsu/Library/Application Support/CleanShot/media/media_w8g0UhdSUN/CleanShot 2024-07-19 at 10.10.19@2x.png 
 fi
 
 ###############################################################################
@@ -76,7 +72,7 @@ yabai -m config window_placement second_child
 # -- mouse settings --
 
 # center mouse on window with focus
-yabai -m config mouse_follows_focus on
+# yabai -m config mouse_follows_focus on
 
 # modifier for clicking and dragging with mouse
 yabai -m config mouse_modifier alt
@@ -129,12 +125,32 @@ ignored_apps=(
   "Stickies"
   "Streaks"
   "System Information"
-  "System Preferences"
   "The Unarchiver"
   "Things"
   "Telegram"
   "Transmit"
   "WeChat"
+  "Shadowrocket"
+  "Raycast"
+  "Finder"
+  "系统设置"
+  "WeChat"
+  "QQ"
+  "网易云音乐"
+  "QQ音乐"
+  "Clash Verge"
+  "CleanShot X"
+  "ChatGPT"
+  "腾讯会议"
+  "语雀"
+  "Things"
+  "微信"
+  "豆包"
+  "访达"
+  "FaceTime通话"
+  "FaceTime"
+  "iStat Menus"
+  "iStat Menus"
 )
 
 for app in "${ignored_apps[@]}";
@@ -151,7 +167,7 @@ yabai -m rule --add app="Music" title="MiniPlayer" manage=off
 yabai -m rule --add app="Front" title="New Message" manage=off
 yabai -m rule --add app="Front" title="New Discussion" manage=off
 yabai -m rule --add app="Firefox" title="Picture-in-Picture" manage=off
-yabai -m rule --add app="Arc" title="Picture in Picture" manage=off
+# yabai -m rule --add app="Arc" title="Picture in Picture" manage=off
 yabai -m rule --add app="VLC"
 yabai -m rule --add app="Transmit" title="Activity" manage=off
 # delete monocle mode lock files from previous sessions
