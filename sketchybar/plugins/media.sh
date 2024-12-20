@@ -1,18 +1,15 @@
-#!/bin/bash
-
-update_media() {
-  STATE="$(echo "$INFO" | jq -r '.state')"
-
-  if [ "$STATE" = "playing" ]; then
-    APP=$(echo "$INFO" | jq -r '.app')
-    MEDIA="$(echo "$INFO" | jq -r '.title + " - " + .artist')"
-    sketchybar --set $NAME label="$MEDIA" drawing=on
-  else
-    sketchybar --set $NAME drawing=off
-  fi
+update_go_musicfox() {
+  INFO=$(nowplaying-cli get title artist)
+  TITLE=$(echo "$INFO" | awk 'NR==1 {print}' | sed 's/null//')
+  ARTIST=$(echo "$INFO" | awk 'NR==2 {print}' | sed 's/null//')
+  MEDIA="$TITLE - $ARTIST"
+  sketchybar --set media icon.background.drawing=off label="$MEDIA"
 }
 
 case "$SENDER" in
-  "media_change") update_media
+# media change or volume change media_change
+"media_change" | "volume_change" | "video_close" | "front_app_switched")
+  update_go_musicfox
   ;;
+*) ;;
 esac
