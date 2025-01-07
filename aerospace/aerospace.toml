@@ -64,17 +64,17 @@ on-focus-changed = ['move-mouse window-lazy-center']
 [workspace-to-monitor-force-assignment]
 1 = 'main'
 2 = 'main'
-3 = 'V32UE'
-4 = 'V32UE'
-5 = 'V32UE'
-6 = '^27W'
-7 = '^27W'
-10 = '^EPSON'
+3 = 'main'
+4 = 'main'
+5 = 'main'
+6 = 'main'
+7 = 'main'
+10 = 'main'
 
 [gaps]
 inner.horizontal = 10
 inner.vertical = 10
-outer.top = [{ monitor."main" = 40 }, 40]
+outer.top = [{ monitor."main" = 10 }, 40]
 outer.left = 10
 outer.bottom = 10
 outer.right = 10
@@ -114,15 +114,10 @@ PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
-cmd-enter = 'macos-native-fullscreen'
-cmd-q = 'close'
+# cmd-enter = 'macos-native-fullscreen'
 ctrl-alt-enter= 'fullscreen'
 ctrl-alt-c= 'layout floating tiling'
-# cmd-left = 'workspace --wrap-around prev'
-# cmd-right = 'workspace --wrap-around next'
 cmd-shift-c = 'reload-config'
-cmd-shift-f = 'layout floating tiling' # 'floating toggle' in i3
-f11 = 'fullscreen'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 cmd-alt-h = 'focus left --boundaries all-monitors-outer-frame'
@@ -131,10 +126,6 @@ cmd-alt-k = 'focus up --boundaries all-monitors-outer-frame'
 cmd-alt-l = 'focus right --boundaries all-monitors-outer-frame'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
-# ctrl-alt-h = 'move left'
-# ctrl-alt-j = 'move down'
-# ctrl-alt-k = 'move up'
-# ctrl-alt-l = 'move right'
 alt-left = 'move left'
 alt-down = 'move down'
 alt-up = 'move up'
@@ -145,16 +136,16 @@ alt-ctrl-minus = 'resize smart -50'
 alt-ctrl-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-cmd-1 = 'workspace 1'
-cmd-2 = 'workspace 2'
-cmd-3 = 'workspace 3'
-cmd-4 = 'workspace 4'
-cmd-5 = 'workspace 5'
-cmd-6 = 'workspace 6'
-cmd-7 = 'workspace 7'
-cmd-8 = 'workspace 8'
-cmd-9 = 'workspace 9'
-cmd-0 = 'workspace 10'
+ctrl-1 = 'workspace 1'
+ctrl-2 = 'workspace 2'
+ctrl-3 = 'workspace 3'
+ctrl-4 = 'workspace 4'
+ctrl-5 = 'workspace 5'
+ctrl-6 = 'workspace 6'
+ctrl-7 = 'workspace 7'
+ctrl-8 = 'workspace 8'
+ctrl-9 = 'workspace 9'
+ctrl-0 = 'workspace 10'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
@@ -181,6 +172,10 @@ alt-shift-semicolon = 'mode service'
 
 # disabled hide window
 # cmd-h = []
+# See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
+# alt-tab = 'workspace-back-and-forth'
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
+# alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 # rotate hangul and english
 
 [mode.service.binding]
@@ -201,28 +196,8 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
-
 alt-shift-r = ['exec-and-forget /opt/homebrew/bin/sketchybar --reload']
 
-[[on-window-detected]]
-if.app-id = 'com.kakao.KakaoTalkMac'
-run = ['move-node-to-workspace 8']
-
-[[on-window-detected]]
-if.app-id = 'com.tdesktop.Telegram'
-run = ['move-node-to-workspace 8']
-
-[[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
-run = ['move-node-to-workspace 8']
-
-[[on-window-detected]]
-if.app-id = 'com.clickup.desktop-app'
-run = ['move-node-to-workspace 5']
-
-[[on-window-detected]]
-if.app-id = "md.obsidian"
-run = ['move-node-to-workspace 9']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.weather'
@@ -234,9 +209,92 @@ run = ['layout floating']
 
 [[on-window-detected]]
 if.app-id = 'com.tencent.qq'
-run = ['layout floating']
+run = ['layout floating', 'move-node-to-workspace 3']
 
 [[on-window-detected]]
 if.app-id = 'com.tencent.xinWeChat'
+run = ['layout floating', 'move-node-to-workspace 3']
+
+[[on-window-detected]]
+if.app-id = 'io.github.clash-verge-rev.clash-verge-rev'
 run = ['layout floating']
 
+[[on-window-detected]]
+if.app-id = 'com.colliderli.iina'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.alibaba.quark.clouddrive'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Terminal'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.culturedcode.ThingsMac'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.bjango.istatmenus'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.nssurge.surge-mac'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.nssurge.surge-dashboard'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'org.qbittorrent.qBittorrent'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.DiskUtility'
+run = ['layout floating']
+
+# [[on-window-detected]]
+# if.app-id = 'com.mitchellh.ghostty'
+# run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser'
+run = ['move-node-to-workspace 2']
+
+[[on-window-detected]]
+if.app-id = 'ru.keepcoder.Telegram'
+run = ['move-node-to-workspace 8']
+
+[[on-window-detected]]
+if.app-id = "md.obsidian"
+run = ['move-node-to-workspace 5']
+
+[[on-window-detected]]
+if.app-id = 'com.firecore.infuse'
+run = ['layout floating', 'move-node-to-workspace 10']
+
+[[on-window-detected]]
+if.app-id = 'com.kimen.aptvpro'
+run = ['layout floating', 'move-node-to-workspace 9']
+
+[[on-window-detected]]
+if.app-id = 'com.philipyoungg.session'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.tencent.meeting'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.raycast.macos'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.netease.163music'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = ['layout floating']

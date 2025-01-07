@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+
 source "$CONFIG_DIR/icons.sh" # Loads all defined icons
 
 ITEM_DIR="$CONFIG_DIR/items" # Directory where the items are configured
@@ -78,19 +79,14 @@ sketchybar --default "${defaults[@]}"
 source "$ITEM_DIR/apple.sh"
 source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/front_app.sh"
-#source "$ITEM_DIR/yabai.sh"
 
 # Center
-# source "$ITEM_DIR/spotify.sh"
-# source "$ITEM_DIR/media.sh"
 
 # Right
 source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/wifi.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/volume.sh"
-# source "$ITEM_DIR/music.sh"
-# source "$ITEM_DIR/media.sh"
 
 sketchybar --hotload on
 
